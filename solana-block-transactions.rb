@@ -33,7 +33,7 @@ begin
   CSV.open(output_file, 'w') do |csv|
     csv << %w[slot tx_count]
     counter = 0
-    slot_start.upto(slot_start + 1001).each do |slot|
+    slot_start.upto(slot_end).each do |slot|
       begin
         block = method_wrapper.get_block(slot)
       rescue SolanaRpcRuby::ApiError => e
